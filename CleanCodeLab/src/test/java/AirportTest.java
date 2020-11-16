@@ -1,7 +1,7 @@
 import Planes.ExperimentalPlane;
-import models.ClassificationLevel;
-import models.ExperimentalTypes;
-import models.MilitaryType;
+import Models.ClassificationLevel;
+import Models.ExperimentalTypes;
+import Models.MilitaryType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import Planes.MilitaryPlane;
@@ -59,6 +59,8 @@ public class AirportTest {
 
     @Test
     public void testNextPlaneMaxLoadCapacityIsHigherThanCurrent() {
+        Logger logger = Logger.getLogger(AirportTest.class.getName().getClass());
+        logger.info("Test testNextPlaneMaxLoadCapacityIsHigherThanCurrent was started.");
         Airport airport = new Airport(planes);
         airport.sortByMaxLoadCapacity();
         List<? extends Plane> planesSortedByMaxLoadCapacity = airport.getPlanes();
@@ -77,6 +79,8 @@ public class AirportTest {
 
     @Test
     public void testHasAtLeastOneBomberInMilitaryPlanes() {
+        Logger logger = Logger.getLogger(AirportTest.class.getName().getClass());
+        logger.info("Test testHasAtLeastOneBomberInMilitaryPlanes was started.");
         Airport airport = new Airport(planes);
         List<MilitaryPlane> bomberMilitaryPlanes = airport.getBomberMilitaryPlanes();
         boolean flag = false;
@@ -84,14 +88,14 @@ public class AirportTest {
             if ((militaryPlane.getType() == MilitaryType.BOMBER)) {
                 flag = true;
             }
-            else {
-                Assert.fail("Test failed!");
-            }
+            Assert.assertTrue(flag);
         }
     }
 
     @Test
     public void testExperimentalPlanesHasClassificationLevelHigherThanUnclassified(){
+        Logger logger = Logger.getLogger(AirportTest.class.getName().getClass());
+        logger.info("Test testExperimentalPlanesHasClassificationLevelHigherThanUnclassified was started.");
         Airport airport = new Airport(planes);
         List<ExperimentalPlane> ExperimentalPlanes = airport.getExperimentalPlanes();
         boolean hasUnclassifiedPlanes = false;
@@ -101,6 +105,6 @@ public class AirportTest {
                 break;
             }
         }
-        Assert.assertFalse(hasUnclassifiedPlanes);
+        Assert.assertTrue(hasUnclassifiedPlanes);
     }
 }
