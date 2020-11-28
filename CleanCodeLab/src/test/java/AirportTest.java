@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 import planes.MilitaryPlane;
 import planes.PassengerPlane;
 import planes.Plane;
-import org.testng.log4testng.Logger;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,6 +41,16 @@ public class AirportTest {
                         .getTransportMilitaryPlanes()
                         .stream()
                         .allMatch(plane -> plane.getType() == MilitaryType.TRANSPORT)
+        );
+    }
+
+    @Test
+    public void testGetBomberMilitaryPlanes() {
+        Assert.assertTrue(
+                new Airport(planes)
+                        .getBomberMilitaryPlanes()
+                        .stream()
+                        .allMatch(plane -> plane.getType() == MilitaryType.BOMBER)
         );
     }
 
