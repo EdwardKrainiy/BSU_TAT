@@ -35,6 +35,13 @@ public class AirportTest {
     private static PassengerPlane planeWithMaxPassengerCapacity = new PassengerPlane("Boeing-747", 980, 16100, 70500, 242);
 
     @Test
+    public void testGetPlanes(){
+        Assert.assertFalse(new Airport(planes)
+                .getPlanes()
+                .isEmpty());
+    }
+
+    @Test
     public void testGetPassengerPlanes(){
         Assert.assertFalse(new Airport(planes)
                             .getPassengerPlanes()
@@ -45,6 +52,13 @@ public class AirportTest {
     public void testGetMilitaryPlanes(){
         Assert.assertFalse(new Airport(planes)
                 .getMilitaryPlanes()
+                .isEmpty());
+    }
+
+    @Test
+    public void testGetExperimentalPlanes(){
+        Assert.assertFalse(new Airport(planes)
+                .getExperimentalPlanes()
                 .isEmpty());
     }
 
