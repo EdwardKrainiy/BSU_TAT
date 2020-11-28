@@ -63,6 +63,14 @@ public class AirportTest {
     }
 
     @Test
+    public void testGetExperimentalPlanesHasVTOLExperimentalType(){
+        Assert.assertTrue(new Airport(planes)
+                .getExperimentalPlanes()
+                .stream()
+                .allMatch(plane -> plane.getExperimentalType() == ExperimentalTypes.VTOL));
+    }
+
+    @Test
     public void testGetTransportMilitaryPlanes() {
         Assert.assertTrue(
                 new Airport(planes)

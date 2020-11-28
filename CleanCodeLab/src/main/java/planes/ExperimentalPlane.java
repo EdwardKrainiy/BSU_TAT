@@ -20,6 +20,10 @@ public class ExperimentalPlane extends Plane{
         return classificationLevel;
     }
 
+    public ExperimentalTypes getExperimentalType(){
+        return experimentalType;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o instanceof ExperimentalPlane) {
