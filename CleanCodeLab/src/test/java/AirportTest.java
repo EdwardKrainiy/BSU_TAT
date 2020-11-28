@@ -36,8 +36,16 @@ public class AirportTest {
 
     @Test
     public void testGetPassengerPlanes(){
-        Assert.assertNotNull(new Airport(planes)
-                            .getPassengerPlanes());
+        Assert.assertFalse(new Airport(planes)
+                            .getPassengerPlanes()
+                            .isEmpty());
+    }
+
+    @Test
+    public void testGetMilitaryPlanes(){
+        Assert.assertFalse(new Airport(planes)
+                .getMilitaryPlanes()
+                .isEmpty());
     }
 
     @Test
