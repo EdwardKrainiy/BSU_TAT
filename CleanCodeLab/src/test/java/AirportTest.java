@@ -80,6 +80,30 @@ public class AirportTest {
     }
 
     @Test
+    public void testSortByMaxSpeedAreAscending() {
+        final AtomicInteger maxSpeed = new AtomicInteger(Integer.MIN_VALUE);
+        Assert.assertTrue(
+                new Airport(planes)
+                        .sortByMaxSpeed()
+                        .getPlanes()
+                        .stream()
+                        .allMatch(plane -> plane.getMaxSpeed() >= maxSpeed.getAndSet(plane.getMaxSpeed()))
+        );
+    }
+
+    @Test
+    public void testSortByMaxDistanceAreAscending() {
+        final AtomicInteger maxDistance = new AtomicInteger(Integer.MIN_VALUE);
+        Assert.assertTrue(
+                new Airport(planes)
+                        .sortByMaxDistance()
+                        .getPlanes()
+                        .stream()
+                        .allMatch(plane -> plane.getMaxFlightDistance() >= maxDistance.getAndSet(plane.getMaxFlightDistance()))
+        );
+    }
+
+    @Test
     public void testHasAtLeastOneBomberInMilitaryPlanes() {
         Assert.assertTrue(
                 new Airport(planes)
