@@ -1,3 +1,5 @@
+import com.sun.xml.internal.ws.policy.AssertionSet;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class HelloWebDriver {
 
    @Test
-   public void testSearchAndAddToBasket() {
+   public void testSearchAndAddToBasket() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
 
         WebDriver chromeDriver = new ChromeDriver();
@@ -38,6 +40,9 @@ public class HelloWebDriver {
 
         WebElement addToBasketButton = elements.getAddToBasketButton();
         addToBasketButton.click();
+
+        Thread.sleep(5000);
+        Assert.assertEquals(elements.getAmountOfItemsInBasket(), "1");
         chromeDriver.quit();
    }
 }

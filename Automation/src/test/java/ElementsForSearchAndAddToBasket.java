@@ -13,7 +13,7 @@ public class ElementsForSearchAndAddToBasket {
 
     public WebElement getCloseAdButton(){
         try {
-            return new WebDriverWait(webDriver, 20).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("popmechanic-close"))).get(0);
+            return new WebDriverWait(webDriver, 5).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("popmechanic-close"))).get(0);
         } catch (Exception e){
             System.out.println("Ad not found.");
             return null;
@@ -22,7 +22,7 @@ public class ElementsForSearchAndAddToBasket {
 
     public WebElement getCloseChatButton(){
         try {
-            return new WebDriverWait(webDriver, 20).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("support-close"))).get(0);
+            return new WebDriverWait(webDriver, 5).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("support-close"))).get(0);
         } catch (Exception e){
             System.out.println("Support chat not found.");
             return null;
@@ -43,5 +43,9 @@ public class ElementsForSearchAndAddToBasket {
 
     public WebElement getAddToBasketButton(){
         return this.webDriver.findElement(By.xpath("//*[@id=\"bx_2369550383_10342_buy_link\"]"));
+    }
+
+    public String getAmountOfItemsInBasket(){
+        return this.webDriver.findElement(By.xpath("//*[@id=\"basket_items_list\"]/div[1]/span")).getText();
     }
 }
