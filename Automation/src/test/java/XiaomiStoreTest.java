@@ -50,11 +50,6 @@ public class XiaomiStoreTest {
           searchPage.clickAddToBasketButton();
 
           Assert.assertEquals("1", searchPage.getAmountOfItemsInBasket());
-     }
-     
-     @AfterClass
-     public void quitDriver(){
           driver.quit();
      }
-
 }
