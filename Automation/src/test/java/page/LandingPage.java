@@ -65,3 +65,5 @@ public class LandingPage {
         return this.driver.findElement(By.xpath("//*[@id=\"bx_3966226736_10342\"]/div/a[2]/b")).getText();
     }
 }
+
+
