@@ -1,7 +1,6 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import page.LandingPage;
@@ -30,9 +29,9 @@ public class XiaomiStoreTest {
      public void testSearchAllItemsWithXiaomiString() throws InterruptedException {
           driver.get("https://xistore.by/");
 
-          landingPage.clickCloseAdButton();
-
           landingPage.clickCloseChatButton();
+
+          landingPage.clickCloseAdButton();
 
           landingPage.inputStringToSearchField("Xiaomi");
 

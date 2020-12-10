@@ -25,7 +25,7 @@ public class LandingPage {
 
     public WebElement getCloseAdButton(){
         try {
-            return new WebDriverWait(driver, 25).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("popmechanic-close"))).get(0);
+            return new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.className("popmechanic-close")));
         } catch (Exception e){
             System.out.println("Ad not found.");
             return null;
@@ -40,7 +40,7 @@ public class LandingPage {
 
     public WebElement getCloseChatButton(){
         try {
-            return new WebDriverWait(driver, 25).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("support-close"))).get(0);
+            return new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("support-close"))).get(0);
         } catch (Exception e){
             System.out.println("Support chat not found.");
             return null;
@@ -62,7 +62,7 @@ public class LandingPage {
     }
 
     public String getNameOfTheFirstPhoneOnPage(){
-        return this.driver.findElement(By.xpath("//*[@id=\"bx_3966226736_10342\"]/div/a[2]/b")).getText();
+        return this.driver.findElement(By.xpath("//*[@id=\"bx_3966226736_10342\"]/div/a[5]/b")).getText();
     }
 }
 
