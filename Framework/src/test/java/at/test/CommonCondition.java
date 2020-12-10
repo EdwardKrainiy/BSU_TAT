@@ -17,6 +17,5 @@ public class CommonCondition {
     @AfterMethod(alwaysRun = true)
     public void stopBrowser()
     {
-        DriverSingleton.closeDriver();
     }
 }

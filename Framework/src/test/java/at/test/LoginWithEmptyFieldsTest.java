@@ -2,12 +2,13 @@ package at.test;
 
 import at.model.User;
 import at.page.LoginPage;
+import at.page.RegistrationPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class EmptyFieldsTest extends CommonCondition {
+public class LoginWithEmptyFieldsTest extends CommonCondition {
     @Test
-    public void RegistrationWithEmptyEmailFieldTest(){
+    public void LoginWithEmptyFieldsTest(){
         User testUserWithEmptyFields = new User("", "");
         String errorMessage = new LoginPage(driver)
                 .openPage()
