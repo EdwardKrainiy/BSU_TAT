@@ -25,7 +25,7 @@ public class LandingPage {
 
     public WebElement getCloseAdButton(){
         try {
-            return new WebDriverWait(driver, 25).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("popmechanic-close"))).get(0);
+            return new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("popmechanic-close"))).get(0);
         } catch (Exception e){
             System.out.println("Ad not found.");
             return null;
@@ -40,7 +40,7 @@ public class LandingPage {
 
     public WebElement getCloseChatButton(){
         try {
-            return new WebDriverWait(driver, 25).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("support-close"))).get(0);
+            return new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("support-close"))).get(0);
         } catch (Exception e){
             System.out.println("Support chat not found.");
             return null;
