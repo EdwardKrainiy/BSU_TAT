@@ -18,7 +18,7 @@ public class BuyingPage extends AbstractPage {
     @FindBy(className = "category-item-img")
     private WebElement buyPhoneButton;
 
-    @FindBy(className = "button-link-pay")
+    @FindBy(id = "bx_2369550383_10342_buy_link")
     private WebElement addToBasketButton;
 
     public BuyingPage(WebDriver driver){
