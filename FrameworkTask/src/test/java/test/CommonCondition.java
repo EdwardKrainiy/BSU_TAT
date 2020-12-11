@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeMethod;
 public class CommonCondition {
     protected WebDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod()
     public void setUp()
     {
         driver = DriverSingleton.getDriver();
