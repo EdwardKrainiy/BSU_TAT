@@ -15,7 +15,7 @@ public class BuyingPage extends AbstractPage {
     private final By amountOfItemsOnBasketElement = By.xpath("//*[@id=\"basket_items_list\"]/div[1]/span");
     Logger log = Logger.getLogger(BuyingPage.class);
 
-    @FindBy(xpath = "//*[@id=\"bx_1717408340_10342\"]/div[4]/div/div[1]/a")
+    @FindBy(className = "category-item-img")
     private WebElement buyPhoneButton;
 
     @FindBy(className = "button-link-pay")
