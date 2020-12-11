@@ -15,16 +15,7 @@ public class BuyingPage extends AbstractPage {
     private final By amountOfItemsOnBasketElement = By.xpath("//*[@id=\"basket_items_list\"]/div[1]/span");
     Logger log = Logger.getLogger(BuyingPage.class);
 
-    @FindBy(xpath = "//*[@id=\"426340\"]/td[4]/div/a[1]")
-    private WebElement plusButtonElement;
-
-    @FindBy(xpath = "//*[@id=\"426362\"]/td[4]/div/a[2]")
-    private WebElement minusButtonElement;
-
-    @FindBy(xpath = "//a[@class='mbw-delete']")
-    private WebElement deleteFromBasketButton;
-
-    @FindBy(xpath = "//*[@id=\"bx_1717408340_10342\"]/div[4]/div/a")
+    @FindBy(xpath = "//*[@id=\"bx_1717408340_10342\"]/div[4]/div/div[1]/a")
     private WebElement buyPhoneButton;
 
     @FindBy(className = "button-link-pay")
@@ -50,6 +41,7 @@ public class BuyingPage extends AbstractPage {
 
     public BuyingPage addToBasket(){
         log.info("addToBasket method has been called.");
+        addToBasketButton.click();
         addToBasketButton.click();
         return this;
     }

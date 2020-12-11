@@ -14,10 +14,10 @@ public class ComparingPage extends AbstractPage {
     private final By listOfPhonesOnComparingPage =  By.className("mCS_img_loaded");
     Logger log = Logger.getLogger(ComparingPage.class);
 
-    @FindBy(xpath = "//*[@id=\"bx_1717408340_10342\"]/div[2]/a")
+    @FindBy(xpath = "//*[@id=\"bx_1717408340_10342\"]/div[2]/a/span[1]")
     private WebElement compareFirstPhoneButton;
 
-    @FindBy(xpath = "//*[@id=\"bx_1717408340_25893\"]/div[2]/a")
+    @FindBy(xpath = "//*[@id=\"bx_1717408340_25893\"]/div[2]/a/span[1]")
     private WebElement compareSecondPhoneButton;
 
     @FindBy(xpath = "/html/body/div[2]/footer/div[3]/a[1]")
