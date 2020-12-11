@@ -12,7 +12,7 @@ public class LoginWithEmptyFieldsTest extends CommonCondition {
 
     @Test
     public void LoginWithEmptyFieldsTest(){
-        log.info("Test ");
+        log.info("Test3 has been started.");
         User testUserWithEmptyFields = new User("", "");
         String errorMessage = new LoginPage(driver)
                 .openPage()

@@ -1,5 +1,6 @@
 package page;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,11 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 public class BuyingPage extends AbstractPage {
     private final String PAGE_URL = "https://xistore.by/catalog/telefony/";
     private final By amountOfItemsOnBasketElement = By.xpath("//*[@id=\"basket_items_list\"]/div[1]/span");
-    private final By amountOfOnePhoneOnBasketElement = By.xpath("//*[@id=\"QUANTITY_INPUT_426340\"]");
-    private final By basketIsEmptyTextElement = By.xpath("/html/body/div[2]/div[5]/div/div/div/div/div");
+    Logger log = Logger.getLogger(BuyingPage.class);
 
     @FindBy(xpath = "//*[@id=\"426340\"]/td[4]/div/a[1]")
     private WebElement plusButtonElement;
@@ -36,53 +37,26 @@ public class BuyingPage extends AbstractPage {
 
     @Override
     public BuyingPage openPage() {
-        System.out.println("openPage method");
+        log.info("openPage method has been called.");
         driver.navigate().to(PAGE_URL);
         return this;
     }
 
     public BuyingPage buyPhone(){
-        System.out.println("buyPhone method");
-
+        log.info("buyPhone method has been called.");
         buyPhoneButton.click();
         return this;
     }
 
     public BuyingPage addToBasket(){
-        System.out.println("addToBasket method");
-
+        log.info("addToBasket method has been called.");
         addToBasketButton.click();
         return this;
     }
 
     public int getAmountOfPhones(){
-        System.out.println("getAmountOfPhones method");
+        log.info("getAmountOfPhones method has been called.");
         return new Integer (new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.presenceOfElementLocated(amountOfItemsOnBasketElement)).getText());
-    }
-
-    public BuyingPage clickOnPlusButton(){
-        plusButtonElement.click();
-        return this;
-    }
-
-    public BuyingPage clickOnMinusButton(){
-        minusButtonElement.click();
-        return this;
-    }
-
-    public int getAmountOfThisPhone(){
-        return new Integer (new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-                .until(ExpectedConditions.presenceOfElementLocated(amountOfOnePhoneOnBasketElement)).getText());
-    }
-
-    public BuyingPage deletePhoneFromBasket(){
-        deleteFromBasketButton.click();
-        return this;
-    }
-
-    public String getBasketIsEmptyText(){
-        return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-                .until(ExpectedConditions.presenceOfElementLocated(basketIsEmptyTextElement)).getText();
     }
 }

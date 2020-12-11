@@ -1,6 +1,7 @@
 package page;
 
 import model.User;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,8 +11,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends AbstractPage {
-    private final String PAGE_URL = "https://xistore.by";
+    private final String PAGE_URL = "https://xistore.by/#modalLogin";
     private final By linkErrorMessage = By.className("errortext");
+    Logger log = Logger.getLogger(LoginPage.class);
 
     @FindBy(className = "navigation-cabinet-link")
     private WebElement authorizationButton;
@@ -32,12 +34,14 @@ public class LoginPage extends AbstractPage {
 
     @Override
     public LoginPage openPage() {
+        log.info("openPage method has been called.");
         driver.navigate().to(PAGE_URL);
         authorizationButton.click();
         return this;
     }
 
     public LoginPage login(User user){
+        log.info("login method has been called.");
         loginInput.sendKeys(user.getLogin());
         passwordInput.sendKeys(user.getPassword());
         submitButton.click();
@@ -45,6 +49,7 @@ public class LoginPage extends AbstractPage {
     }
 
     public String getErrorMessage(){
+        log.info("getErrorMessage method has been called.");
         return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.presenceOfElementLocated(linkErrorMessage)).getText();
     }
