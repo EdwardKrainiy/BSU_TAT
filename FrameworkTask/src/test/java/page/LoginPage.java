@@ -22,7 +22,7 @@ public class LoginPage extends AbstractPage {
     @FindBy(name = "USER_PASSWORD")
     private WebElement passwordInput;
 
-    @FindBy(name = "Login")
+    @FindBy(className = "modal-input-button")
     private WebElement submitButton;
 
     public LoginPage(WebDriver driver){

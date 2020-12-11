@@ -26,7 +26,7 @@ public class BuyingPage extends AbstractPage {
     @FindBy(xpath = "//*[@id=\"bx_1717408340_10342\"]/div[4]/div/a")
     private WebElement buyPhoneButton;
 
-    @FindBy(xpath = "//*[@id=\"bx_2369550383_10342_buy_link\"]")
+    @FindBy(className = "button-link-pay")
     private WebElement addToBasketButton;
 
     public BuyingPage(WebDriver driver){
