@@ -1,9 +1,9 @@
 package test;
 
 import model.User;
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.log4testng.Logger;
 import page.LoginPage;
 
 
