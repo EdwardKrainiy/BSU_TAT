@@ -1,6 +1,9 @@
+import org.junit.jupiter.api.AfterAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import page.LandingPage;
@@ -22,14 +25,11 @@ public class XiaomiStoreTest {
           landingPage = new LandingPage(driver);
 
           driver.manage().window().maximize();
-          driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
      }
 
      @Test
      public void testSearchAllItemsWithXiaomiString() throws InterruptedException {
-          driver.get("https://xistore.by/");
-
-          landingPage.clickCloseChatButton();
+          driver.navigate().to("https://xistore.by/");
 
           landingPage.clickCloseAdButton();
 
@@ -42,13 +42,17 @@ public class XiaomiStoreTest {
 
      @Test(dependsOnMethods = "testSearchAllItemsWithXiaomiString")
      public void testAddOnePhoneToBasket(){
-          driver.get("https://xistore.by/search/?q=Xiaomi");
+          driver.navigate().to("https://xistore.by/search/?q=Xiaomi");
 
           searchPage.clickOnTheFirstPhoneLink();
 
           searchPage.clickAddToBasketButton();
 
           Assert.assertEquals("1", searchPage.getAmountOfItemsInBasket());
+     }
+
+     @AfterClass(alwaysRun = true)
+     public void closeBrowser(){
           driver.quit();
      }
 }
