@@ -36,21 +36,27 @@ public class BuyingPage extends AbstractPage {
 
     @Override
     public BuyingPage openPage() {
+        System.out.println("openPage method");
         driver.navigate().to(PAGE_URL);
         return this;
     }
 
     public BuyingPage buyPhone(){
+        System.out.println("buyPhone method");
+
         buyPhoneButton.click();
         return this;
     }
 
     public BuyingPage addToBasket(){
+        System.out.println("addToBasket method");
+
         addToBasketButton.click();
         return this;
     }
 
     public int getAmountOfPhones(){
+        System.out.println("getAmountOfPhones method");
         return new Integer (new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.presenceOfElementLocated(amountOfItemsOnBasketElement)).getText());
     }
