@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RegistrationPage extends AbstractPage {
-    private final String PAGE_URL = "https://xistore.by";
+    private final String PAGE_URL = "https://xistore.by/#modalLogin";
     private final By linkErrorMessage = By.className("errortext");
     Logger log = Logger.getLogger(RegistrationPage.class);
 
