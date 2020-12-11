@@ -2,13 +2,15 @@ package test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.log4testng.Logger;
 import page.SearchPage;
 
 public class SearchTest extends CommonCondition {
+    private Logger log = Logger.getLogger(SearchTest.class);
 
     @Test
     public void SearchWithEmptyFieldTest(){
-        System.out.println("Test5");
+        log.info("Test 5 has been started.");
         String searchMessage = new SearchPage(driver)
                 .openPage()
                 .searchWithEmptyField()
@@ -19,8 +21,7 @@ public class SearchTest extends CommonCondition {
 
     @Test
     public void SearchWithQueryTest() {
-        System.out.println("Test6");
-
+        log.info("Test 6 has been started.");
         String searchQuery = "Xiaomi";
         String nameOfTheFirstSearchedPhone = new SearchPage(driver)
                 .openPage()

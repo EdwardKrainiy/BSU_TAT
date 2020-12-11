@@ -2,14 +2,16 @@ package test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.log4testng.Logger;
 import page.ComparingPage;
 
+
 public class AddTwoPhonesToComparingAndDeleteOnePhoneFromComparingTest extends CommonCondition {
+    Logger log = Logger.getLogger(SearchTest.class);
 
     @Test
     public void ComparingTwoPhonesAndDeletingOnePhoneTest() {
-        System.out.println("Test1");
-
+        log.info("Test1 has been started.");
         ComparingPage comparingPage = new ComparingPage(driver);
         int amountOfPhonesBeforeDeleting = comparingPage
                 .openPage()

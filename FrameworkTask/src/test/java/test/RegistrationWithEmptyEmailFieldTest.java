@@ -3,14 +3,16 @@ package test;
 import model.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.log4testng.Logger;
 import page.RegistrationPage;
 
+
 public class RegistrationWithEmptyEmailFieldTest extends CommonCondition {
+    Logger log = Logger.getLogger(RegistrationWithEmptyEmailFieldTest.class);
 
     @Test
     public void RegistrationWithEmptyEmailFieldTest(){
-        System.out.println("Test4");
-
+        log.info("Test4 has been started.");
         User testUserWithEmptyFields = new User("", "");
         String errorMessage = new RegistrationPage(driver)
                 .openPage()
