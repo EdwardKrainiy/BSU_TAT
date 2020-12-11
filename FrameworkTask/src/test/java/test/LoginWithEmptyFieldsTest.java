@@ -16,7 +16,7 @@ public class LoginWithEmptyFieldsTest extends CommonCondition {
         User testUserWithEmptyFields = new User("", "");
         String errorMessage = new LoginPage(driver)
                 .openPage()
-                .login(testUserWithEmptyFields)
+                .tryToLogin(testUserWithEmptyFields)
                 .getErrorMessage();
         Assert.assertEquals("Неверный логин или пароль.", errorMessage);
     }

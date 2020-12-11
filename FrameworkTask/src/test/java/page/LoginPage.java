@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends AbstractPage {
     private final String PAGE_URL = "https://xistore.by/#modalLogin";
-    private final By linkErrorMessage = By.className("errortext");
+    private final By linkErrorMessage = By.xpath("//*[@id=\"comp_e4a030fa544c48699047d8b0f024d2eb\"]/p");
     Logger log = Logger.getLogger(LoginPage.class);
 
     @FindBy(className = "navigation-cabinet-link")
@@ -40,7 +40,7 @@ public class LoginPage extends AbstractPage {
         return this;
     }
 
-    public LoginPage login(User user){
+    public LoginPage tryToLogin(User user){
         log.info("login method has been called.");
         loginInput.sendKeys(user.getLogin());
         passwordInput.sendKeys(user.getPassword());

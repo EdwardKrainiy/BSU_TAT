@@ -16,7 +16,7 @@ public class RegistrationWithEmptyEmailFieldTest extends CommonCondition {
         User testUserWithEmptyFields = new User("", "");
         String errorMessage = new RegistrationPage(driver)
                 .openPage()
-                .register(testUserWithEmptyFields)
+                .tryToRegister(testUserWithEmptyFields)
                 .getErrorMessage();
         Assert.assertEquals("Поле \"Электронная почта\" обязательно для заполнения", errorMessage);
     }

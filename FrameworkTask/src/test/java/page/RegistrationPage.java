@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RegistrationPage extends AbstractPage {
     private final String PAGE_URL = "https://xistore.by/#modalLogin";
-    private final By linkErrorMessage = By.className("errortext");
+    private final By linkErrorMessage = By.xpath("//*[@id=\"comp_36d8e386ca9debade673c72daf2f657c\"]/div/p");
     Logger log = Logger.getLogger(RegistrationPage.class);
 
     @FindBy(className = "navigation-cabinet-link")
@@ -41,7 +41,7 @@ public class RegistrationPage extends AbstractPage {
         return this;
     }
 
-    public RegistrationPage register(User user){
+    public RegistrationPage tryToRegister(User user){
         log.info("register method has been called.");
         loginInput.sendKeys(user.getLogin());
         submitButton.click();
