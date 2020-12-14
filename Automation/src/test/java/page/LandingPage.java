@@ -47,7 +47,7 @@ public class LandingPage {
     }
 
     public String getNameOfTheFirstPhoneOnPage(){
-        return this.driver.findElement(By.xpath("//*[@id=\"bx_3966226736_10342\"]/div/a[5]/b")).getText();
+        return this.driver.findElement(By.className("search__page_item-name")).getText();
     }
 }
 

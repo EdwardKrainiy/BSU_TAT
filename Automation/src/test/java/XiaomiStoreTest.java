@@ -1,15 +1,11 @@
-import org.junit.jupiter.api.AfterAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import page.LandingPage;
 import page.SearchPage;
-
-import java.util.concurrent.TimeUnit;
 
 public class XiaomiStoreTest {
      WebDriver driver;
@@ -28,7 +24,7 @@ public class XiaomiStoreTest {
      }
 
      @Test
-     public void testSearchAllItemsWithXiaomiString() throws InterruptedException {
+     public void searchAllItemsWithXiaomiStringTest() throws InterruptedException {
           driver.navigate().to("https://xistore.by/");
 
           landingPage.clickCloseAdButton();
@@ -37,11 +33,11 @@ public class XiaomiStoreTest {
 
           landingPage.clickSearchButton();
 
-          Assert.assertEquals("Xiaomi", landingPage.getNameOfTheFirstPhoneOnPage());
+          Assert.assertTrue(landingPage.getNameOfTheFirstPhoneOnPage().contains("Xiaomi"));
      }
 
-     @Test(dependsOnMethods = "testSearchAllItemsWithXiaomiString")
-     public void testAddOnePhoneToBasket(){
+     @Test(dependsOnMethods = "searchAllItemsWithXiaomiStringTest")
+     public void addOnePhoneToBasketTest(){
           driver.navigate().to("https://xistore.by/search/?q=Xiaomi");
 
           searchPage.clickOnTheFirstPhoneLink();
