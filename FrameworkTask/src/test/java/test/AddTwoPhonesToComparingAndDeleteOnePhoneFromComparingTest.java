@@ -10,7 +10,7 @@ public class AddTwoPhonesToComparingAndDeleteOnePhoneFromComparingTest extends C
     Logger log = Logger.getLogger(SearchTest.class);
 
     @Test
-    public void ComparingTwoPhonesAndDeletingOnePhoneTest() {
+    public void comparingTwoPhonesAndDeletingOnePhoneTest() {
         log.info("Test1 has been started.");
         ComparingPage comparingPage = new ComparingPage(driver);
         int amountOfPhonesBeforeDeleting = comparingPage

@@ -11,7 +11,7 @@ public class LoginWithEmptyFieldsTest extends CommonCondition {
     Logger log = Logger.getLogger(LoginWithEmptyFieldsTest.class);
 
     @Test
-    public void LoginWithEmptyFieldsTest(){
+    public void loginWithEmptyFieldsTest(){
         log.info("Test3 has been started.");
         User testUserWithEmptyFields = new User("", "");
         String errorMessage = new LoginPage(driver)

@@ -9,7 +9,7 @@ public class SearchTest extends CommonCondition {
     private Logger log = Logger.getLogger(SearchTest.class);
 
     @Test
-    public void SearchWithEmptyFieldTest(){
+    public void searchWithEmptyFieldTest(){
         log.info("Test 5 has been started.");
         String searchMessage = new SearchPage(driver)
                 .openPage()
@@ -20,7 +20,7 @@ public class SearchTest extends CommonCondition {
     }
 
     @Test
-    public void SearchWithQueryTest() {
+    public void searchWithQueryTest() {
         log.info("Test 6 has been started.");
         String searchQuery = "Xiaomi";
         String nameOfTheFirstSearchedPhone = new SearchPage(driver)

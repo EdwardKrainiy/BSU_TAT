@@ -10,7 +10,7 @@ public class ChooseConfigurationAndAddToBasketTest extends CommonCondition {
     Logger log = Logger.getLogger(SearchTest.class);
 
     @Test
-    public void ChooseConfigurationAndAddToBasketTest(){
+    public void chooseConfigurationAndAddToBasketTest(){
         log.info("Test2 has been started.");
         int amountOfPhonesOnBasket = new BuyingPage(driver)
                 .openPage()

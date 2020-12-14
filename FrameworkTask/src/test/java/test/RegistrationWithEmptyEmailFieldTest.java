@@ -11,7 +11,7 @@ public class RegistrationWithEmptyEmailFieldTest extends CommonCondition {
     Logger log = Logger.getLogger(RegistrationWithEmptyEmailFieldTest.class);
 
     @Test
-    public void RegistrationWithEmptyEmailFieldTest(){
+    public void registrationWithEmptyEmailFieldTest(){
         log.info("Test4 has been started.");
         User testUserWithEmptyFields = new User("", "");
         String errorMessage = new RegistrationPage(driver)
