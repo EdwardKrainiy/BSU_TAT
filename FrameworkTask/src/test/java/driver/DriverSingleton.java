@@ -10,8 +10,12 @@ public class DriverSingleton {
     private DriverSingleton(){}
 
     public static WebDriver getDriver(){
-        WebDriverManager.chromedriver().setup();
-        return new ChromeDriver();
+        if (null == driver){
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
+            driver.manage().window().maximize();
+        }
+        return driver;
     }
 
     public static void closeDriver(){
