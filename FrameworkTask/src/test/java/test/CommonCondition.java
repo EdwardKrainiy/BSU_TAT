@@ -2,15 +2,14 @@ package test;
 
 import driver.DriverSingleton;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 
 
 public class CommonCondition {
     protected WebDriver driver;
 
-    @BeforeMethod()
-    public void setUp()
+    @BeforeMethod(alwaysRun = true)
+    public void setupTest()
     {
         driver = DriverSingleton.getDriver();
     }
