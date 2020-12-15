@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ComparingPage extends AbstractPage {
     private final String PAGE_URL = "catalog/telefony/";
-    private final By listOfPhonesOnComparingPage =  By.className("mCS_img_loaded");
+    private final By listOfPhonesOnComparingPage =  By.className("b-mobile-img");
     Logger log = Logger.getLogger(ComparingPage.class);
 
     @FindBy(className = "js_compare_id_10342")
