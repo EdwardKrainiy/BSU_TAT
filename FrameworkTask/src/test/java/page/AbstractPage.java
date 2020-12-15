@@ -7,7 +7,7 @@ public abstract class AbstractPage {
     protected String URL = "https://xistore.by/";
 
     protected abstract AbstractPage openPage();
-    protected final int WAIT_TIMEOUT_SECONDS = 10;
+    protected final int WAIT_TIMEOUT_SECONDS = 15;
 
     protected AbstractPage(WebDriver driver)
     {
