@@ -15,7 +15,7 @@ public class LoginPage extends AbstractPage {
     private final By linkErrorMessage = By.xpath("//*[@id=\"comp_e4a030fa544c48699047d8b0f024d2eb\"]/p");
     Logger log = Logger.getLogger(LoginPage.class);
 
-    @FindBy(className = "navigation-cabinet-link")
+    @FindBy(className = "navigation-cabinet-list")
     private WebElement authorizationButton;
 
     @FindBy(name = "USER_LOGIN")
