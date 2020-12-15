@@ -44,7 +44,7 @@ public class XiaomiStoreTest {
 
           searchPage.clickAddToBasketButton();
 
-          Assert.assertEquals("В вашей корзине 1 товар", searchPage.getAmountOfItemsInBasket());
+          Assert.assertEquals("1", searchPage.getAmountOfItemsInBasket());
      }
 
      @AfterClass(alwaysRun = true)
