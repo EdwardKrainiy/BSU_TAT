@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends AbstractPage {
-    private final String PAGE_URL = "https://xistore.by/#modalLogin";
+    private final String PAGE_URL = "#modalLogin";
     private final By linkErrorMessage = By.xpath("//*[@id=\"comp_e4a030fa544c48699047d8b0f024d2eb\"]/p");
     Logger log = Logger.getLogger(LoginPage.class);
 
@@ -35,7 +35,7 @@ public class LoginPage extends AbstractPage {
     @Override
     public LoginPage openPage() {
         log.info("openPage method has been called.");
-        driver.navigate().to(PAGE_URL);
+        driver.navigate().to(URL + PAGE_URL);
         authorizationButton.click();
         return this;
     }

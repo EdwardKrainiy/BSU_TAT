@@ -1,5 +1,6 @@
 package test;
 
+import driver.DriverSingleton;
 import model.User;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -14,7 +15,7 @@ public class RegistrationWithEmptyEmailFieldTest extends CommonCondition {
     public void registrationWithEmptyEmailFieldTest(){
         log.info("Test4 has been started.");
         User testUserWithEmptyFields = new User("", "");
-        String errorMessage = new RegistrationPage(driver)
+        String errorMessage = new RegistrationPage(DriverSingleton.getDriver())
                 .openPage()
                 .tryToRegister(testUserWithEmptyFields)
                 .getErrorMessage();

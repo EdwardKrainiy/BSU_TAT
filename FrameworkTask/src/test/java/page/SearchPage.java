@@ -10,9 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SearchPage extends AbstractPage {
-    private final String PAGE_URL = "https://xistore.by";
     private final By searchMessageElement = By.className("search-result-new");
-    private final By firstSearchedPhoneElement = By.className("search__page_item-name");
+    private final By firstFoundedPhoneElement = By.className("search__page_item-name");
     Logger log = Logger.getLogger(SearchPage.class);
 
     @FindBy(className = "input-search-button")
@@ -29,7 +28,7 @@ public class SearchPage extends AbstractPage {
     @Override
     public SearchPage openPage() {
         log.info("openPage method has been called.");
-        driver.navigate().to(PAGE_URL);
+        driver.navigate().to(URL);
         return this;
     }
 
@@ -52,9 +51,12 @@ public class SearchPage extends AbstractPage {
                 .until(ExpectedConditions.presenceOfElementLocated(searchMessageElement)).getText();
     }
 
-    public String getNameOfTheFirstPhone(){
+    public String getNameOfTheFirstFoundedPhone(){
         log.info("getNameOfTheFirstPhone method has been called.");
-        return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-                .until(ExpectedConditions.presenceOfElementLocated(firstSearchedPhoneElement)).getText();
+        if(driver.findElements(firstFoundedPhoneElement).size() == 0){
+            return null;
+        }
+        else return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
+                .until(ExpectedConditions.presenceOfAllElementsLocatedBy(firstFoundedPhoneElement)).get(0).getText();
     }
 }

@@ -1,5 +1,6 @@
 package test;
 
+import driver.DriverSingleton;
 import model.User;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -14,7 +15,7 @@ public class LoginWithEmptyFieldsTest extends CommonCondition {
     public void loginWithEmptyFieldsTest(){
         log.info("Test3 has been started.");
         User testUserWithEmptyFields = new User("", "");
-        String errorMessage = new LoginPage(driver)
+        String errorMessage = new LoginPage(DriverSingleton.getDriver())
                 .openPage()
                 .tryToLogin(testUserWithEmptyFields)
                 .getErrorMessage();

@@ -1,10 +1,10 @@
 package test;
 
+import driver.DriverSingleton;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.ComparingPage;
-
 
 public class AddTwoPhonesToComparingAndDeleteOnePhoneFromComparingTest extends CommonCondition {
     Logger log = Logger.getLogger(SearchTest.class);
@@ -12,7 +12,7 @@ public class AddTwoPhonesToComparingAndDeleteOnePhoneFromComparingTest extends C
     @Test
     public void comparingTwoPhonesAndDeletingOnePhoneTest() {
         log.info("Test1 has been started.");
-        ComparingPage comparingPage = new ComparingPage(driver);
+        ComparingPage comparingPage = new ComparingPage(DriverSingleton.getDriver());
         int amountOfPhonesBeforeDeleting = comparingPage
                 .openPage()
                 .compareTwoPhones()

@@ -11,11 +11,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class BuyingPage extends AbstractPage {
-    private final String PAGE_URL = "https://xistore.by/catalog/telefony/";
+    private final String PAGE_URL = "catalog/telefony/";
     private final By amountOfItemsOnBasketElement = By.xpath("//*[@id=\"basket_items_list\"]/div[1]/span");
     Logger log = Logger.getLogger(BuyingPage.class);
 
-    @FindBy(className = "category-item-img")
+    @FindBy(className = "search__page_item-name")
     private WebElement buyPhoneButton;
 
     @FindBy(className = "button-link-orange")
@@ -29,7 +29,7 @@ public class BuyingPage extends AbstractPage {
     @Override
     public BuyingPage openPage() {
         log.info("openPage method has been called.");
-        driver.navigate().to(PAGE_URL);
+        driver.navigate().to(URL + PAGE_URL);
         return this;
     }
 

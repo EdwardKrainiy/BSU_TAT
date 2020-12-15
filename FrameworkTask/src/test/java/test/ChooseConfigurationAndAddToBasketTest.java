@@ -1,10 +1,10 @@
 package test;
 
+import driver.DriverSingleton;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.BuyingPage;
-
 
 public class ChooseConfigurationAndAddToBasketTest extends CommonCondition {
     Logger log = Logger.getLogger(SearchTest.class);
@@ -12,7 +12,7 @@ public class ChooseConfigurationAndAddToBasketTest extends CommonCondition {
     @Test
     public void chooseConfigurationAndAddToBasketTest(){
         log.info("Test2 has been started.");
-        int amountOfPhonesOnBasket = new BuyingPage(driver)
+        int amountOfPhonesOnBasket = new BuyingPage(DriverSingleton.getDriver())
                 .openPage()
                 .buyPhone()
                 .addToBasket()

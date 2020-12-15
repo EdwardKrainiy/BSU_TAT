@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ComparingPage extends AbstractPage {
-    private final String PAGE_URL = "https://xistore.by/catalog/telefony/";
+    private final String PAGE_URL = "catalog/telefony/";
     private final By listOfPhonesOnComparingPage =  By.className("mCS_img_loaded");
     Logger log = Logger.getLogger(ComparingPage.class);
 
@@ -34,7 +34,7 @@ public class ComparingPage extends AbstractPage {
     @Override
     public ComparingPage openPage() {
         log.info("openPage method has been called.");
-        driver.navigate().to(PAGE_URL);
+        driver.navigate().to(URL + PAGE_URL);
         return this;
     }
 
