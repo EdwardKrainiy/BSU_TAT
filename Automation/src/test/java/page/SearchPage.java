@@ -34,6 +34,6 @@ public class SearchPage {
     }
 
     public String getAmountOfItemsInBasket(){
-        return new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"basket_items_list\"]/div[1]/span"))).getText();
+        return new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.className("basket_items_list-head"))).getText();
     }
 }
