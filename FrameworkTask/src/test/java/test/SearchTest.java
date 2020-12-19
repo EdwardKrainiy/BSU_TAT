@@ -33,7 +33,7 @@ public class SearchTest extends CommonCondition {
 
     @Test(dataProvider = "incorrectQuerySearchTestProvider", dataProviderClass = SearchTestDataProvider.class)
     public void searchWithIncorrectQueryTest(String query) {
-        log.info("Test 7has been started.");
+        log.info("Test 7 has been started.");
         String errorMessage = new SearchPage(DriverSingleton.getDriver())
                 .openPage()
                 .searchWithFilledField(query)

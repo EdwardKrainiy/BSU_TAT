@@ -15,6 +15,7 @@ public class SearchTestDataProvider {
     @DataProvider(name = "incorrectQuerySearchTestProvider")
     public Object[][] incorrectSearchDataProviderMethod() {
         return new Object[][]{
-                { "Xiomi" }};
+                { "Xiomi" },
+                { "Xiaaomi" }};
     }
 }
