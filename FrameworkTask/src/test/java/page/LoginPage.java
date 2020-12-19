@@ -7,8 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class LoginPage extends AbstractPage {
     private final String PAGE_URL = "#modalLogin";
@@ -50,7 +49,6 @@ public class LoginPage extends AbstractPage {
 
     public String getErrorMessage(){
         log.info("getErrorMessage method has been called.");
-        return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-                .until(ExpectedConditions.presenceOfElementLocated(linkErrorMessage)).getText();
+        return getFinalWebElementWhichNeedInTest(linkErrorMessage).get(0).getText();
     }
 }

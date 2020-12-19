@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class BuyingPage extends AbstractPage {
@@ -48,7 +46,6 @@ public class BuyingPage extends AbstractPage {
 
     public int getAmountOfPhones(){
         log.info("getAmountOfPhones method has been called.");
-        return new Integer (new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-                .until(ExpectedConditions.presenceOfElementLocated(amountOfItemsOnBasketElement)).getText());
+        return new Integer(getFinalWebElementWhichNeedInTest(amountOfItemsOnBasketElement).get(0).getText());
     }
 }

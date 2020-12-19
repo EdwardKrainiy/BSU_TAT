@@ -6,8 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class SearchPage extends AbstractPage {
     private final By searchMessageElement = By.className("search-result-new");
@@ -47,8 +46,7 @@ public class SearchPage extends AbstractPage {
 
     public String getSearchMessage(){
         log.info("getSearchMessage method has been called.");
-        return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-                .until(ExpectedConditions.presenceOfElementLocated(searchMessageElement)).getText();
+        return getFinalWebElementWhichNeedInTest(searchMessageElement).get(0).getText();
     }
 
     public String getNameOfTheFirstFoundedPhone(){
@@ -56,7 +54,6 @@ public class SearchPage extends AbstractPage {
         if(driver.findElements(firstFoundedPhoneElement).size() == 0){
             return null;
         }
-        else return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-                .until(ExpectedConditions.presenceOfAllElementsLocatedBy(firstFoundedPhoneElement)).get(0).getText();
+        else return getFinalWebElementWhichNeedInTest(firstFoundedPhoneElement).get(0).getText();
     }
 }

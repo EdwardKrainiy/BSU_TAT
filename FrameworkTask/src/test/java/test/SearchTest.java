@@ -20,7 +20,7 @@ public class SearchTest extends CommonCondition {
         Assert.assertEquals(searchMessage, "К СОЖАЛЕНИЮ, НА ВАШ ПОИСКОВЫЙ ЗАПРОС НИЧЕГО НЕ НАЙДЕНО.");
     }
 
-    @Test(dataProvider = "searchTestProvider", dataProviderClass = SearchTestDataProvider.class)
+    @Test(dataProvider = "correctQuerySearchTestProvider", dataProviderClass = SearchTestDataProvider.class)
     public void searchWithQueryTest(String query) {
         log.info("Test 6 has been started.");
         String nameOfTheFirstSearchedByQueryPhone = new SearchPage(DriverSingleton.getDriver())
@@ -29,5 +29,15 @@ public class SearchTest extends CommonCondition {
                 .getNameOfTheFirstFoundedPhone();
         boolean isNameContainsQuery = nameOfTheFirstSearchedByQueryPhone.contains(query);
         Assert.assertTrue(isNameContainsQuery);
+    }
+
+    @Test(dataProvider = "incorrectQuerySearchTestProvider", dataProviderClass = SearchTestDataProvider.class)
+    public void searchWithIncorrectQueryTest(String query) {
+        log.info("Test 7has been started.");
+        String errorMessage = new SearchPage(DriverSingleton.getDriver())
+                .openPage()
+                .searchWithFilledField(query)
+                .getSearchMessage();
+        Assert.assertTrue(errorMessage.equals("К СОЖАЛЕНИЮ, НА ВАШ ПОИСКОВЫЙ ЗАПРОС НИЧЕГО НЕ НАЙДЕНО."));
     }
 }

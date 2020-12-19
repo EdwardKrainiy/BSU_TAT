@@ -6,8 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class ComparingPage extends AbstractPage {
     private final String PAGE_URL = "catalog/telefony/";
@@ -53,8 +52,7 @@ public class ComparingPage extends AbstractPage {
 
     public int getAmountOfPhonesOnComparingPage(){
         log.info("getAmountOfPhonesOnComparingPage method has been called.");
-        return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-                .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(listOfPhonesOnComparingPage)).size() / 2;
+        return getFinalWebElementWhichNeedInTest(listOfPhonesOnComparingPage).size() / 2;
     }
 
     public ComparingPage removeOnePhoneFromComparing(){
