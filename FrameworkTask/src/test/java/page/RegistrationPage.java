@@ -9,9 +9,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
+@SuppressWarnings("unused")
 public class RegistrationPage extends AbstractPage {
-    private final String PAGE_URL = "#modalLogin";
-    private final By linkErrorMessage = By.xpath("//*[@id=\"comp_36d8e386ca9debade673c72daf2f657c\"]/div/p");
+    private final static String PAGE_URL = "#modalLogin";
+    private final static By linkErrorMessage = By.xpath("//*[@id=\"comp_36d8e386ca9debade673c72daf2f657c\"]/div/p");
     Logger log = Logger.getLogger(RegistrationPage.class);
 
     @FindBy(className = "navigation-cabinet-link")
@@ -49,6 +50,6 @@ public class RegistrationPage extends AbstractPage {
 
     public String getErrorMessage(){
         log.info("getErrorMessage method has been called.");
-        return getFinalWebElementWhichNeedInTest(linkErrorMessage).get(0).getText();
+        return waitForAllWebElements(linkErrorMessage).get(0).getText();
     }
 }

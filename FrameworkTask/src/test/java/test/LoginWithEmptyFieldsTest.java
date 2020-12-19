@@ -10,15 +10,16 @@ import page.LoginPage;
 
 public class LoginWithEmptyFieldsTest extends CommonCondition {
     Logger log = Logger.getLogger(LoginWithEmptyFieldsTest.class);
+    private static final String ERROR_MESSAGE = "Неверный логин или пароль.";
 
     @Test
     public void loginWithEmptyFieldsTest(){
-        log.info("Test3 has been started.");
+        log.info("loginWithEmptyFieldsTest has been started.");
         User testUserWithEmptyFields = new User("", "");
-        String errorMessage = new LoginPage(DriverSingleton.getDriver())
+        String loginMessage = new LoginPage(DriverSingleton.getDriver())
                 .openPage()
                 .tryToLogin(testUserWithEmptyFields)
                 .getErrorMessage();
-        Assert.assertEquals("Неверный логин или пароль.", errorMessage);
+        Assert.assertEquals(loginMessage, ERROR_MESSAGE);
     }
 }

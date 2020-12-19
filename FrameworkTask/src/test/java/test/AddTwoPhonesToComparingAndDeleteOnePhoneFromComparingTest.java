@@ -11,7 +11,7 @@ public class AddTwoPhonesToComparingAndDeleteOnePhoneFromComparingTest extends C
 
     @Test
     public void comparingTwoPhonesAndDeletingOnePhoneTest() {
-        log.info("Test1 has been started.");
+        log.info("comparingTwoPhonesAndDeletingOnePhoneTest has been started.");
         ComparingPage comparingPage = new ComparingPage(DriverSingleton.getDriver());
         int amountOfPhonesBeforeDeleting = comparingPage
                 .openPage()

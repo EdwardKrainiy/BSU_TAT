@@ -8,9 +8,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
+@SuppressWarnings("unused")
 public class SearchPage extends AbstractPage {
-    private final By searchMessageElement = By.className("search-result-new");
-    private final By firstFoundedPhoneElement = By.className("search__page_item-name");
+    private final static By searchMessageElement = By.className("search-result-new");
+    private final static By firstFoundedPhoneElement = By.className("search__page_item-name");
     Logger log = Logger.getLogger(SearchPage.class);
 
     @FindBy(className = "input-search-button")
@@ -46,7 +47,7 @@ public class SearchPage extends AbstractPage {
 
     public String getSearchMessage(){
         log.info("getSearchMessage method has been called.");
-        return getFinalWebElementWhichNeedInTest(searchMessageElement).get(0).getText();
+        return waitForAllWebElements(searchMessageElement).get(0).getText();
     }
 
     public String getNameOfTheFirstFoundedPhone(){
@@ -54,6 +55,6 @@ public class SearchPage extends AbstractPage {
         if(driver.findElements(firstFoundedPhoneElement).size() == 0){
             return null;
         }
-        else return getFinalWebElementWhichNeedInTest(firstFoundedPhoneElement).get(0).getText();
+        else return waitForAllWebElements(firstFoundedPhoneElement).get(0).getText();
     }
 }

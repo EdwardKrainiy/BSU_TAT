@@ -8,9 +8,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
+@SuppressWarnings("unused")
 public class ComparingPage extends AbstractPage {
-    private final String PAGE_URL = "catalog/telefony/";
-    private final By listOfPhonesOnComparingPage =  By.className("b-mobile-img");
+    private final static String PAGE_URL = "catalog/telefony/";
+    private final static By listOfPhonesOnComparingPage =  By.className("b-mobile-img");
     Logger log = Logger.getLogger(ComparingPage.class);
 
     @FindBy(className = "js_compare_id_10342")
@@ -52,7 +53,7 @@ public class ComparingPage extends AbstractPage {
 
     public int getAmountOfPhonesOnComparingPage(){
         log.info("getAmountOfPhonesOnComparingPage method has been called.");
-        return getFinalWebElementWhichNeedInTest(listOfPhonesOnComparingPage).size() / 2;
+        return waitForAllWebElements(listOfPhonesOnComparingPage).size() / 2;
     }
 
     public ComparingPage removeOnePhoneFromComparing(){

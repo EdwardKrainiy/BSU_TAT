@@ -10,15 +10,16 @@ import page.RegistrationPage;
 
 public class RegistrationWithEmptyEmailFieldTest extends CommonCondition {
     Logger log = Logger.getLogger(RegistrationWithEmptyEmailFieldTest.class);
+    private static final String WARNING_MESSAGE = "Поле \"Электронная почта\" обязательно для заполнения";
 
     @Test
     public void registrationWithEmptyEmailFieldTest(){
-        log.info("Test4 has been started.");
+        log.info("registrationWithEmptyEmailFieldTest has been started.");
         User testUserWithEmptyFields = new User("", "");
-        String errorMessage = new RegistrationPage(DriverSingleton.getDriver())
+        String registrationMessage = new RegistrationPage(DriverSingleton.getDriver())
                 .openPage()
                 .tryToRegister(testUserWithEmptyFields)
                 .getErrorMessage();
-        Assert.assertEquals("Поле \"Электронная почта\" обязательно для заполнения", errorMessage);
+        Assert.assertEquals(registrationMessage, WARNING_MESSAGE);
     }
 }

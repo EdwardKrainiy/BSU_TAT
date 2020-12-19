@@ -20,7 +20,7 @@ public abstract class AbstractPage {
         this.driver = driver;
     }
 
-    public List<WebElement> getFinalWebElementWhichNeedInTest(By selectorOfElement){
+    public List<WebElement> waitForAllWebElements(By selectorOfElement){
         return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.presenceOfAllElementsLocatedBy(selectorOfElement));
     }

@@ -9,20 +9,21 @@ import provider.SearchTestDataProvider;
 
 public class SearchTest extends CommonCondition {
     private Logger log = Logger.getLogger(SearchTest.class);
+    private static final String ERROR_MESSAGE = "К СОЖАЛЕНИЮ, НА ВАШ ПОИСКОВЫЙ ЗАПРОС НИЧЕГО НЕ НАЙДЕНО.";
 
     @Test
     public void searchWithEmptyFieldTest(){
-        log.info("Test 5 has been started.");
+        log.info("searchWithEmptyFieldTest has been started.");
         String searchMessage = new SearchPage(DriverSingleton.getDriver())
                 .openPage()
                 .searchWithEmptyField()
                 .getSearchMessage();
-        Assert.assertEquals(searchMessage, "К СОЖАЛЕНИЮ, НА ВАШ ПОИСКОВЫЙ ЗАПРОС НИЧЕГО НЕ НАЙДЕНО.");
+        Assert.assertEquals(searchMessage, ERROR_MESSAGE);
     }
 
     @Test(dataProvider = "correctQuerySearchTestProvider", dataProviderClass = SearchTestDataProvider.class)
     public void searchWithQueryTest(String query) {
-        log.info("Test 6 has been started.");
+        log.info("searchWithQueryTest has been started.");
         String nameOfTheFirstSearchedByQueryPhone = new SearchPage(DriverSingleton.getDriver())
                 .openPage()
                 .searchWithFilledField(query)
@@ -33,11 +34,11 @@ public class SearchTest extends CommonCondition {
 
     @Test(dataProvider = "incorrectQuerySearchTestProvider", dataProviderClass = SearchTestDataProvider.class)
     public void searchWithIncorrectQueryTest(String query) {
-        log.info("Test 7 has been started.");
-        String errorMessage = new SearchPage(DriverSingleton.getDriver())
+        log.info("searchWithIncorrectQueryTest has been started.");
+        String searchMessage = new SearchPage(DriverSingleton.getDriver())
                 .openPage()
                 .searchWithFilledField(query)
                 .getSearchMessage();
-        Assert.assertTrue(errorMessage.equals("К СОЖАЛЕНИЮ, НА ВАШ ПОИСКОВЫЙ ЗАПРОС НИЧЕГО НЕ НАЙДЕНО."));
+        Assert.assertEquals(searchMessage, ERROR_MESSAGE);
     }
 }

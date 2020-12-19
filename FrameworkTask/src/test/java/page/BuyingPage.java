@@ -8,9 +8,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
+@SuppressWarnings("unused")
 public class BuyingPage extends AbstractPage {
-    private final String PAGE_URL = "catalog/telefony/";
-    private final By amountOfItemsOnBasketElement = By.xpath("//*[@id=\"basket_items_list\"]/div[1]/span");
+    private final static String PAGE_URL = "catalog/telefony/";
+    private final static By amountOfItemsOnBasketElement = By.xpath("//*[@id=\"basket_items_list\"]/div[1]/span");
     Logger log = Logger.getLogger(BuyingPage.class);
 
     @FindBy(className = "search__page_item-name")
@@ -46,6 +47,6 @@ public class BuyingPage extends AbstractPage {
 
     public int getAmountOfPhones(){
         log.info("getAmountOfPhones method has been called.");
-        return new Integer(getFinalWebElementWhichNeedInTest(amountOfItemsOnBasketElement).get(0).getText());
+        return new Integer(waitForAllWebElements(amountOfItemsOnBasketElement).get(0).getText());
     }
 }

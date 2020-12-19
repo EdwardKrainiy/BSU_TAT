@@ -11,7 +11,7 @@ public class ChooseConfigurationAndAddToBasketTest extends CommonCondition {
 
     @Test
     public void chooseConfigurationAndAddToBasketTest(){
-        log.info("Test2 has been started.");
+        log.info("chooseConfigurationAndAddToBasketTest has been started.");
         int amountOfPhonesOnBasket = new BuyingPage(DriverSingleton.getDriver())
                 .openPage()
                 .buyPhone()
